@@ -3,16 +3,6 @@ from snowflake.snowpark import Session
 import streamlit as st
 from snowflake.snowpark.functions import col
 
-[connections.snowflake]
-account = "PSZKBQY-ZV52731"
-user = "JOHNV54321"
-password = "tWF7CD!!,K5pY*"
-role = "sysadmin"
-warehouse = "COMPUTE_WH"
-database = "SMOOTHIES"
-schema = "PUBLIC"
-client_session_keep_alive = true
-
 #Write directly to the app
 st.title("Custom Smoothies Order Form :cup_with_straw:")
 st.write(
