@@ -13,7 +13,7 @@ database = "SMOOTHIES"
 schema = "PUBLIC"
 client_session_keep_alive = true
 
- Write directly to the app
+Write directly to the app
 st.title("Custom Smoothies Order Form :cup_with_straw:")
 st.write(
     """Customise your own smoothie!
