@@ -1,7 +1,14 @@
 # Import python packages
+pip install snowflake-snowpark-python
 import streamlit as st
-
 from snowflake.snowpark.functions import col
+
+# .streamlit/secrets.toml
+
+[connections.snowflake]
+account = "PSZKBQY.ZV52731"
+user = "JOHNV54321"
+authenticator = "EXTERNALBROWSER"
 
 # Write directly to the app
 st.title("Custom Smoothies Order Form :cup_with_straw:")
