@@ -3,6 +3,17 @@ from snowflake.snowpark import Session
 import streamlit as st
 from snowflake.snowpark.functions import col
 
+connection_parameters = {
+  "account": "PSZKBQY.ZV52731",
+  "user": "JOHNV54321",
+  "password": "tWF7CD!!,K5"pY*",
+  "role": "sysadmin",
+  "warehouse": "COMPUT_WH",
+  "database": "SMOOTHIES",
+  "schema": "PUBLIC"
+}
+
+session = Session.builder.configs(connection_parameters).create()
 # Write directly to the app
 st.title("Custom Smoothies Order Form :cup_with_straw:")
 st.write(
@@ -12,8 +23,8 @@ st.write(
 name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
-cnx = st.connection("snowflake")
-session = cnx.session()
+#cnx = st.connection("snowflake")
+#session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
