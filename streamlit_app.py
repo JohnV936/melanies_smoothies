@@ -13,12 +13,12 @@ st.write(
 name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
-snowflake_user = st.secrets["snowflake"]["user"]
-snowflake_password = st.secrets["snowflake"]["password"]
-snowflake_account = st.secrets["snowflake"]["account"]
-snowflake_warehouse = st.secrets["snowflake"]["warehouse"]
-snowflake_database = st.secrets["snowflake"]["database"]
-snowflake_schema = st.secrets["snowflake"]["schema"]
+snowflake_user = st.secrets["user"]
+snowflake_password = st.secrets["password"]
+snowflake_account = st.secrets["account"]
+snowflake_warehouse = st.secrets["warehouse"]
+snowflake_database = st.secrets["database"]
+snowflake_schema = st.secrets["schema"]
 
 cnx = st.connection.connect(
     user=snowflake_user,
