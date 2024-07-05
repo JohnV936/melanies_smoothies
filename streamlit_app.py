@@ -1,6 +1,7 @@
 # Import python packages
 from snowflake.snowpark import Session
 import streamlit as st
+import snowflake.connector
 from snowflake.snowpark.functions import col
 
 #Write directly to the app
@@ -12,7 +13,21 @@ st.write(
 name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
-cnx = st.connection("snowflake")
+snowflake_user = st.secrets["snowflake"]["user"]
+snowflake_password = st.secrets["snowflake"]["password"]
+snowflake_account = st.secrets["snowflake"]["account"]
+snowflake_warehouse = st.secrets["snowflake"]["warehouse"]
+snowflake_database = st.secrets["snowflake"]["database"]
+snowflake_schema = st.secrets["snowflake"]["schema"]
+
+cnx = st.connection.connect(
+    user=snowflake_user,
+    password=snowflake_password,
+    account=snowflake_account,
+    warehouse=snowflake_warehouse,
+    database=snowflake_database,
+    schema=snowflake_schema)
+
 session = cnx.session()
 #stop();
 
