@@ -23,10 +23,8 @@ connection_parameters = {
     "schema": "PUBLIC",  # optional
     }  
 
-new_session = Session.builder.configs(connection_parameters).create()
-stop()
-cnx = st.connection(account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
-session = cnx.session()
+session = Session.builder.configs(connection_parameters).create()
+#cnx = st.connection(account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
 #stop();
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
