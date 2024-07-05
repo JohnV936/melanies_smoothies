@@ -14,8 +14,8 @@ name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
 session = Session(account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
-#cnx = st.connection("snowflake")
-#session = cnx.session()
+cnx = st.connection("snowflake", account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
+session = cnx.session()
 #stop();
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
