@@ -13,7 +13,18 @@ st.write(
 name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
-#session = Session(account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
+connection_parameters = {
+    "account": "pszkbqy-zv52731",
+    "user": "JohnV54321",
+    "password": "&JT#e:'238~NR._",
+    "role": "sysadmin",  # optional
+    "warehouse": "COMPUTE_WH",  # optional
+    "database": "SMOOTHIES",  # optional
+    "schema": "PUBLIC",  # optional
+    }  
+
+new_session = Session.builder.configs(connection_parameters).create()
+stop()
 cnx = st.connection(account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
 session = cnx.session()
 #stop();
