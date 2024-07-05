@@ -13,20 +13,20 @@ st.write(
 name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
-connection_parameters = {
-    "account": "pszkbqy-zv52731",
-    "user": "JohnV54321",
-    "password": "&JT#e:'238~NR._",
-    "role": "sysadmin",  # optional
-    "warehouse": "COMPUTE_WH",  # optional
-    "database": "SMOOTHIES",  # optional
-    "schema": "PUBLIC",  # optional
-    }  
+#connection_parameters = {
+#    "account": "pszkbqy-zv52731",
+#    "user": "JohnV54321",
+#    "password": "&JT#e:'238~NR._",
+#    "role": "sysadmin",  # optional
+#    "warehouse": "COMPUTE_WH",  # optional
+#    "database": "SMOOTHIES",  # optional
+#    "schema": "PUBLIC",  # optional
+#    }  
 
-session = Session.builder.configs(connection_parameters).create()
-#cnx = st.connection(account="https://pszkbqy-zv52731.snowflakecomputing.com", user="JohnV54321", password="&JT#e:'238~NR._")
-#stop();
+#session = Session.builder.configs(connection_parameters).create()
 
+cnx = st.connection("snowflake")
+session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
