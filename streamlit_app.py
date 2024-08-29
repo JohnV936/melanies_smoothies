@@ -5,8 +5,6 @@ import streamlit as st
 #from secrets import account, user, password, warehouse, database, schema, role
 from snowflake.snowpark.functions import col
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
 
 #Write directly to the app
 st.title("Custom Smoothies Order Form :cup_with_straw:")
@@ -60,3 +58,7 @@ if ingredients_list:
             session.sql(my_insert_stmt).collect()
             s_statement = 'Your Smoothie is ordered under ' + str(name_on_order)
             st.success(s_statement, icon="✅")
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
+
