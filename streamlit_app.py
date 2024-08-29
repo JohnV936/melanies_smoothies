@@ -1,12 +1,12 @@
 # Import python packages
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
-
 from snowflake.snowpark import Session
 import streamlit as st
 #from secrets import account, user, password, warehouse, database, schema, role
 from snowflake.snowpark.functions import col
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
 
 #Write directly to the app
 st.title("Custom Smoothies Order Form :cup_with_straw:")
