@@ -1,5 +1,5 @@
 # Import python packages
-pip install streamlit --upgrade
+
 import requests
 from snowflake.snowpark import Session
 import streamlit as st
