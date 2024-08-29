@@ -1,4 +1,8 @@
 # Import python packages
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
+
 from snowflake.snowpark import Session
 import streamlit as st
 #from secrets import account, user, password, warehouse, database, schema, role
