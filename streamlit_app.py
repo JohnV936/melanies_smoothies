@@ -1,5 +1,5 @@
 # Import python packages
-import pandas
+import pandas as pd
 import requests
 from snowflake.snowpark import Session
 import streamlit as st
@@ -16,22 +16,18 @@ st.write(
 name_on_order = st.text_input('Name on smoothie')
 st.write('The name on your smoothie will be ', name_on_order)
 
-#connection_parameters = {
-#    "account": "pszkbqy-zv52731",
-#    "user": "JohnV54321",
-#    "password": "&JT#e:'238~NR._",
-#    "role": "sysadmin",  # optional
-#    "warehouse": "COMPUTE_WH",  # optional
-#    "database": "SMOOTHIES",  # optional
-#    "schema": "PUBLIC",  # optional
-#    }  
-
 #session = Session.builder.configs(connection_parameters).create()
 
 cnx = st.connection("snowflake")
 session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit_name'),col('search_on'))
-st.dataframe(data=my_dataframe, use_container_width=True)
+#st.dataframe(data=my_dataframe, use_container_width=True)
+#st.stop()
+# Creating new dataframe using pandas
+pd_df = my_dataframe.to_pandas()
+st.dataframe(pd_df)
+st.stop()
+
 st.stop()
 ingredients_list = st.multiselect('Choose up to 5 ingredients:',
                                   my_dataframe,
