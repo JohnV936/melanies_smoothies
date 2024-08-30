@@ -1,5 +1,5 @@
 # Import python packages
-
+import pandas
 import requests
 from snowflake.snowpark import Session
 import streamlit as st
